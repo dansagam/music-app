@@ -1,12 +1,12 @@
 import React from 'react'
 
-const MusicPlayingDisplay = () => {
+const MusicPlayingDisplay = ({ trackDisplay }) => {
    return (
       <div>
-         <div>Image</div>
+         <div><img src={trackDisplay.img} alt="" /></div>
          <div></div>
-         <div>Track Name</div>
-         <div>Track artiste</div>
+         <div>{trackDisplay.name}</div>
+         <div>{trackDisplay.artist}</div>
       </div>
    )
 }
