@@ -17,7 +17,7 @@ import {
    playTrack,
    prevTrack,
    randomTrack
-} from '../../reducers/trackListReducer'
+} from '../../../reducers/trackListReducer'
 // import { nextTrack } from '../reducers/trackListReducer'
 
 const MusicOps = ({
