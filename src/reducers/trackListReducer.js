@@ -42,7 +42,8 @@ export const trackListReducer = createSlice({
          pauseTrackSuccess: false,
          repeatTrackSuccess: false
       },
-      isPlayingTrack: false
+      isPlayingTrack: false,
+      isRandomStatus: false
    },
    reducers: {
       clearSuccess: (state, action) => {
@@ -55,6 +56,12 @@ export const trackListReducer = createSlice({
                pauseTrackSuccess: false,
                repeatTrackSuccess: false
             }
+         }
+      },
+      randomTrack: (state, action) => {
+         return {
+            ...state,
+            isRandomStatus: action.payload
          }
       },
       loadTrack: (state, action) => {
@@ -121,7 +128,8 @@ export const {
    playTrack,
    pauseTrack,
    repeatTrack,
-   loadTrack
+   loadTrack,
+   randomTrack,
 } = trackListReducer.actions
 
 export default trackListReducer.reducer
