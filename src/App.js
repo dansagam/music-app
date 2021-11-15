@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
-import MusicOps from './components/MusicOps';
-import MusicPlayingDisplay from './components/MusicPlayingDisplay';
-import MusicTrackVolume from './components/MusicTrackVolume';
+import MusicOps from './components/PlayingFeatures/MusicOps';
+import MusicPlayingDisplay from './components/PlayingFeatures/MusicPlayingDisplay';
+import MusicTrackVolume from './components/PlayingFeatures/MusicTrackVolume';
 import {
    loadTrack,
 } from './reducers/trackListReducer';
