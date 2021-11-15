@@ -9,7 +9,6 @@ import {
 
 const MusicPlayer = () => {
    const {
-      // music_lists,
       playing_music,
       success,
       isPlayingTrack,
