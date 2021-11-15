@@ -19,7 +19,6 @@ const MusicTrackVolume = ({ curr_track,
    // currSec,
    // totalMinute,
    // totalSec
-
 }) => {
    // let timerValue = null
    // let timerValue
