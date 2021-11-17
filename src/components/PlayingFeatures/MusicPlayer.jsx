@@ -6,6 +6,7 @@ import MusicTrackVolume from './playerComponents/MusicTrackVolume'
 import {
    loadTrack,
 } from '../../reducers/trackListReducer';
+import playerStyles from '../../cssModules/PlayingModule/MusicPlayer.module.css'
 
 const MusicPlayer = () => {
    const {
@@ -37,22 +38,15 @@ const MusicPlayer = () => {
    }, [playing_music, dispatch, track_index, track_audio, success, isPlayingTrack])
 
    return (
-      <div>
-         <main>
-            testing
-         </main>
-         <header className="App-header">
-            <audio ref={track_audio} src={playing_music.music}></audio>
-            <MusicPlayingDisplay trackDisplay={playing_music} />
-            <MusicTrackVolume
-               curr_track={track_audio}
-            />
-            <MusicOps
-               curr_track={track_audio}
-            />
-         </header>
-
-
+      <div className={playerStyles.player_wrapper}>
+         <audio ref={track_audio} src={playing_music.music}></audio>
+         <MusicPlayingDisplay trackDisplay={playing_music} />
+         <MusicTrackVolume
+            curr_track={track_audio}
+         />
+         <MusicOps
+            curr_track={track_audio}
+         />
       </div>
    )
 }

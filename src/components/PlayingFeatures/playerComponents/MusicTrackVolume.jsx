@@ -11,6 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { useSelector } from 'react-redux'
+import sliderStyles from '../../../cssModules/PlayingModule/MusicTrackVolume.module.css'
 
 const MusicTrackVolume = ({ curr_track,
    // seekSlider,
@@ -101,16 +102,16 @@ const MusicTrackVolume = ({ curr_track,
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [success])
    return (
-      <div>
-         <div>
+      <div className={sliderStyles.slider_wrapper}>
+         <div className={sliderStyles.top_slider}>
             <span><FontAwesomeIcon icon={faList} /></span>
             <span onClick={() => setIsFavourite(!isFavourite)}>
                <FontAwesomeIcon icon={isFavourite ? faHeartSolid : faHeart} />
             </span>
             <span><FontAwesomeIcon icon={faPlus} /></span>
          </div>
-         <div>
-            <div>
+         <div className={sliderStyles.timer_slider_container}>
+            <div className={sliderStyles.timer_slider}>
                <input
                   type="range"
                   min={0}
@@ -120,12 +121,12 @@ const MusicTrackVolume = ({ curr_track,
                   onChange={onSliderHandler}
                />
             </div>
-            <div>
-               <span>{`${currMinute}:${currSec}`}</span> : <span> </span>
+            <div className={sliderStyles.timer_slider_display}>
+               <span>{`${currMinute}:${currSec}`}</span>  <span> </span>
                <span>{`${totalMinute}:${totalSec}`}</span>
             </div>
          </div>
-         <div>
+         <div className={sliderStyles.slider_container}>
             <span
                onClick={volumeDecreaseHandler}
             >

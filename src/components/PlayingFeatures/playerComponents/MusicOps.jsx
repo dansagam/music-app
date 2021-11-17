@@ -18,6 +18,7 @@ import {
    prevTrack,
    randomTrack
 } from '../../../reducers/trackListReducer'
+import opsStyles from '../../../cssModules/PlayingModule/MusicOpsField.module.css'
 // import { nextTrack } from '../reducers/trackListReducer'
 
 const MusicOps = ({
@@ -113,24 +114,25 @@ const MusicOps = ({
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [isPlayingTrack, success])
    return (
-      <div>
-         <span onClick={shuffleTrackHandler}>
-            <FontAwesomeIcon icon={faRandom} />
-         </span>
-         <span onClick={prevTrackHandler}>
-            <FontAwesomeIcon icon={faFastBackward} />
-         </span>
-         <span onClick={playPauseTrackHandler}>
-            <FontAwesomeIcon icon={isPlayingTrack ? faPauseCircle : faPlayCircle} />
-         </span>
-         <span onClick={nextTrackHandler}>
+      <div className={opsStyles.ops_wrapper}>
+         <div className={opsStyles.shuffle_track} onClick={shuffleTrackHandler}>
+            <FontAwesomeIcon icon={faRandom} title='random' />
+         </div>
+         <div className={opsStyles.prev_track} onClick={prevTrackHandler}>
+            <FontAwesomeIcon icon={faFastBackward} title='prev track' />
+         </div>
+         <div className={opsStyles.play_pause_track} onClick={playPauseTrackHandler}>
+            <FontAwesomeIcon
+               icon={isPlayingTrack ? faPauseCircle : faPlayCircle}
+               title={isPlayingTrack ? 'pause track' : 'play track'}
+            />
+         </div>
+         <div className={opsStyles.next_track} onClick={nextTrackHandler}>
             <FontAwesomeIcon icon={faFastForward} />
-         </span>
-         <span onClick={repeatTrackHandler}>
+         </div>
+         <div className={opsStyles.repeat_track} onClick={repeatTrackHandler}>
             <FontAwesomeIcon icon={faCircleNotch} />
-         </span>
-         <span></span>
-         <span></span>
+         </div>
       </div>
    )
 }
