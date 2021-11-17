@@ -1,0 +1,29 @@
+.ops_wrapper {
+   grid-column: 1 / 4;
+   grid-row: 8;
+   display: -ms-grid;
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   grid-template-rows: auto;
+}
+.ops_wrapper span {
+   display: block;
+}
+.shuffle_track,
+.prev_track,
+.play_pause_track,
+.next_track,
+.repeat_track {
+   padding: 25px;
+   opacity: 0.8;
+   transition: opacity 0.2s;
+   color: rgb(185, 100, 100);
+}
+
+.shuffle_track:hover,
+.prev_track:hover,
+.play_pause_track:hover,
+.next_track:hover,
+.repeat_track:hover {
+   opacity: 1;
+}
