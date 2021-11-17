@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "PLPlayer App",
+  "name": "PLPlayer App",
   "icons": [
     {
       "src": "favicon.ico",
@@ -16,6 +16,16 @@
       "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src": "music.ico",
+      "type": "image/x-icon",
+      "sizes": "256x256"
+    },
+    {
+      "src": "musicfolder.ico",
+      "type": "image/x-icon",
+      "sizes": "256x256"
     }
   ],
   "start_url": ".",
