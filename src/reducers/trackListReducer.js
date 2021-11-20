@@ -43,7 +43,8 @@ export const trackListReducer = createSlice({
          repeatTrackSuccess: false
       },
       isPlayingTrack: false,
-      isRandomStatus: false
+      isRandomStatus: false,
+      isRepeatStatus: false
    },
    reducers: {
       clearSuccess: (state, action) => {
@@ -103,7 +104,8 @@ export const trackListReducer = createSlice({
          return {
             ...state,
             success: {
-               repeatTrackSuccess: true
+               repeatTrackSuccess: true,
+               isRepeatStatus: action.payload
             }
          }
       },
