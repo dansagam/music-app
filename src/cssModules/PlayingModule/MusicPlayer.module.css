@@ -3,7 +3,7 @@
    border: 1px solid transparent;
    display: -ms-grid;
    display: grid;
-   grid: repeat(8, minmax(30px, auto)) / repeat(3, 1fr);
+   grid: repeat(8, minmax(10px, auto)) / repeat(3, 1fr);
    margin: auto;
    padding: 20px;
    border-radius: 15px;

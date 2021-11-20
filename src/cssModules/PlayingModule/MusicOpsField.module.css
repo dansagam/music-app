@@ -1,13 +1,16 @@
 .ops_wrapper {
+   -ms-grid-column: 1 / 4;
    grid-column: 1 / 4;
+   -ms-grid-row: 8;
    grid-row: 8;
    display: -ms-grid;
    display: grid;
    grid-template-columns: repeat(5, 1fr);
    grid-template-rows: auto;
 }
-.ops_wrapper span {
-   display: block;
+.ops_wrapper div:hover {
+   background-color: rgb(27, 27, 27);
+   border-radius: 100%;
 }
 .shuffle_track,
 .prev_track,
@@ -17,7 +20,7 @@
    padding: 25px;
    opacity: 0.8;
    transition: opacity 0.2s;
-   color: rgb(185, 100, 100);
+   color: rgb(27, 27, 27);
 }
 
 .shuffle_track:hover,
