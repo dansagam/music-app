@@ -91,7 +91,8 @@ const MusicTrackVolume = ({ curr_track,
       if (
          success.nextTrackSucccess
          || success.prevTrackSuccess
-         || success.playTrackSuccess) {
+         || success.playTrackSuccess
+         || success.repeatTrackSuccess) {
          // loadTrack(playing_music)
          intervalId = setInterval(setUpdateInterval, 1000)
       } else {

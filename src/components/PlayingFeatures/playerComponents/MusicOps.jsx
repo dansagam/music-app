@@ -16,7 +16,8 @@ import {
    pauseTrack,
    playTrack,
    prevTrack,
-   randomTrack
+   randomTrack,
+   repeatTrack
 } from '../../../reducers/trackListReducer'
 import opsStyles from '../../../cssModules/PlayingModule/MusicOpsField.module.css'
 // import { nextTrack } from '../reducers/trackListReducer'
@@ -37,11 +38,13 @@ const MusicOps = ({
       success,
       music_lists,
       isRandomStatus,
-      isPlayingTrack
+      isPlayingTrack,
+      isRepeatStatus
    } = useSelector(state => state.Music)
    const [isRandom, setIsRandom] = useState(false)
    const [isPlaying, setIsPlaying] = useState(false)
    const [track_index, setTrackIndex] = useState(0)
+   const [isRepeat, setIsRepeat] = useState(false)
    const shuffleTrackHandler = () => {
       setIsRandom(!isRandom)
       dispatch(randomTrack(!isRandom))
@@ -61,22 +64,30 @@ const MusicOps = ({
    const nextTrackHandler = () => {
       dispatch(clearSuccess())
       let track_value = track_index
-      if (track_index < music_lists.length - 1 && isRandomStatus === false) {
-         setTrackIndex(track_index + 1)
-         track_value += 1
-         dispatch(nextTrack(track_value))
-      } else if (track_index < music_lists.length - 1 && isRandomStatus === true) {
-         let randomNumber = Number.parseInt(Math.random() * music_lists.length)
-         while (randomNumber === track_index) {
-            randomNumber = Number.parseInt(Math.random() * music_lists.length)
-         }
-         setTrackIndex(randomNumber)
-         track_value = randomNumber
+      console.log(track_index)
+      if (track_index < music_lists.length - 1 && isRepeatStatus === true) {
+         track_value = track_index
+         setTrackIndex(track_value)
          dispatch(nextTrack(track_value))
       } else {
-         track_value = 0
-         setTrackIndex(0)
-         dispatch(nextTrack(0))
+         if (track_index < music_lists.length - 1 && isRandomStatus === false) {
+            setTrackIndex(track_index + 1)
+            track_value += 1
+            dispatch(nextTrack(track_value))
+         } else if (track_index < music_lists.length - 1 && isRandomStatus === true) {
+            let randomNumber = Number.parseInt(Math.random() * music_lists.length)
+            while (randomNumber === track_index) {
+               randomNumber = Number.parseInt(Math.random() * music_lists.length)
+            }
+            setTrackIndex(randomNumber)
+            track_value = randomNumber
+            dispatch(nextTrack(track_value))
+         } else {
+            track_value = 0
+            setTrackIndex(0)
+            dispatch(nextTrack(0))
+         }
+
       }
    }
    const prevTrackHandler = () => {
@@ -92,12 +103,15 @@ const MusicOps = ({
       }
    }
    const repeatTrackHandler = () => {
+      dispatch(repeatTrack(!isRepeat))
+      setIsRepeat(!isRepeat)
 
    }
    useEffect(() => {
       if (success.nextTrackSucccess
          || success.prevTrackSuccess
-         || success.playTrackSuccess) {
+         || success.playTrackSuccess
+         || success.repeatTrackSuccess) {
          // loadTrack(playing_music)
          curr_track.current.play()
          curr_track.current.onended = nextTrackHandler
