@@ -9,7 +9,7 @@
    grid-template-rows: auto;
 }
 .ops_wrapper div:hover {
-   background-color: rgb(27, 27, 27);
+   background-color: #41cedd;
    border-radius: 100%;
 }
 .shuffle_track,
